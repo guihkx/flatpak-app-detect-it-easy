@@ -33,7 +33,6 @@
   </screenshots>
   <url type="homepage">https://horsicq.github.io/</url>
   <url type="bugtracker">https://github.com/horsicq/Detect-It-Easy/issues</url>
-  <content_rating type="oars-1.0"/>
   <content_rating type="oars-1.1"/>
   <releases>
     <release version="3.09" date="2023-12-28"/>
