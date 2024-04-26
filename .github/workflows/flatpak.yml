@@ -6,11 +6,11 @@ on:
       - '*.md'
   push:
     branches:
-      - '*'
+      - '**'
     paths-ignore:
       - '*.md'
     tags-ignore:
-      - '*'
+      - '**'
   release:
     types:
       - published
