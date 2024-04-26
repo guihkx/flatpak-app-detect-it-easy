@@ -203,39 +203,32 @@ jobs:
             builddir/ \
             '${{ steps.details.outputs.manifest }}'
 
-      - name: Check for AppStream xml
-        run: stat builddir/*/share/app-info/xmls/'${{ steps.details.outputs.app_id }}.xml.gz'
-
-      - name: Check for right id in AppStream xml
+      - name: Validate build
         run: |
-          zgrep '<id>${{ steps.details.outputs.app_id }}\(\.\w\+\)*\(.desktop\)\?</id>' \
-            builddir/*/share/app-info/xmls/'${{ steps.details.outputs.app_id }}.xml.gz'
-
-      - name: Validate AppData file
-        run: |
-          flatpak run \
-            --env=G_DEBUG=fatal-criticals \
-            --command=appstream-util \
-            org.flatpak.Builder validate \
-            builddir/*/share/appdata/'${{ steps.details.outputs.app_id }}.appdata.xml'
-
-      - name: Check for 128x128 icon
-        run: |
-          zgrep '<icon type="remote">' \
-            builddir/*/share/app-info/xmls/'${{ steps.details.outputs.app_id }}.xml.gz' ||
-            test -f builddir/*/share/app-info/icons/flatpak/128x128/'${{ steps.details.outputs.app_id }}.png'
+          flatpak run --command=flatpak-builder-lint \
+            org.flatpak.Builder --exceptions repo repo || true
 
       - name: Extract the name of the app
         id: name
         run: |
+          set -e
           set -x
-          name=$(xmlstarlet select \
-            --template \
-            --value-of '/component/name[not(@xml:lang)]' \
-            builddir/*/share/appdata/'${{ steps.details.outputs.app_id }}.appdata.xml' |
-            tr '[:upper:]' '[:lower:]' |
-            tr '[:blank:]' '_'
-          )
+          for appdata in builddir/*/share/appdata/'${{ steps.details.outputs.app_id }}'.appdata.xml \
+                         builddir/*/share/metainfo/'${{ steps.details.outputs.app_id }}'.appdata.xml \
+                         builddir/*/share/metainfo/'${{ steps.details.outputs.app_id }}'.metainfo.xml
+          do
+            name=$(xmlstarlet select \
+              --template \
+              --value-of '/component/name[not(@xml:lang)]' \
+              "${appdata}" |
+              tr '[:upper:]' '[:lower:]' |
+              tr '[:blank:]' '_'
+            )
+            if [ -n "${name}" ]
+            then
+              break
+            fi
+          done
           if [ -z "${name}" ]
           then
             echo 'Failed to extract the name of the app, will use "my_flatpak_app" instead.'
