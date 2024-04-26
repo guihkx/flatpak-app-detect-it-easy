@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Copyright 2024 horsicq -->
 <component type="desktop-application">
-  <id>io.github.horsicq.detect_it_easy</id>
+  <id>io.github.horsicq.detect-it-easy</id>
   <metadata_license>CC0-1.0</metadata_license>
   <project_license>MIT</project_license>
   <name>Detect It Easy</name>
@@ -20,7 +20,7 @@
       <li>macOS: Mach Object (Mach-O)</li>
     </ul>
   </description>
-  <launchable type="desktop-id">io.github.horsicq.detect_it_easy.desktop</launchable>
+  <launchable type="desktop-id">io.github.horsicq.detect-it-easy.desktop</launchable>
   <screenshots>
     <screenshot type="default">
       <image>https://github.com/guihkx/flatpak-app-detect-it-easy/raw/master/screenshots/main_window_basic_view.png</image>

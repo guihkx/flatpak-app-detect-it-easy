@@ -1,4 +1,4 @@
-app-id: io.github.horsicq.detect_it_easy
+app-id: io.github.horsicq.detect-it-easy
 runtime: org.kde.Platform
 runtime-version: 5.15-23.08
 sdk: org.kde.Sdk
@@ -32,4 +32,4 @@ modules:
         use-git: true
         path: patches/store-configs-in-dotconfig.patch
       - type: file
-        path: io.github.horsicq.detect_it_easy.metainfo.xml
+        path: io.github.horsicq.detect-it-easy.metainfo.xml
