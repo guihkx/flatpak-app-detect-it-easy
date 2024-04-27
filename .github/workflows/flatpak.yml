@@ -274,7 +274,7 @@ jobs:
             --arch ${{ matrix.arch }} repo/ \
             --runtime \
             '${{ steps.name.outputs.value }}_${{ steps.version.outputs.value }}-${{ matrix.arch }}.Locale.flatpak' \
-            '${{ steps.details.outputs.app_id }}.Locale' \
+            "$(echo '${{ steps.details.outputs.app_id }}' | tr -- '-' '_').Locale" \
             '${{ steps.details.outputs.branch }}' || true
 
       - name: Upload locale files (${{ matrix.arch }})
@@ -289,7 +289,7 @@ jobs:
             --arch ${{ matrix.arch }} repo/ \
             --runtime \
             '${{ steps.name.outputs.value }}_${{ steps.version.outputs.value }}-${{ matrix.arch }}.Debug.flatpak' \
-            '${{ steps.details.outputs.app_id }}.Debug' \
+            "$(echo '${{ steps.details.outputs.app_id }}' | tr -- '-' '_').Debug" \
             '${{ steps.details.outputs.branch }}' || true
 
       - name: Upload debug symbols (${{ matrix.arch }})
