@@ -28,8 +28,5 @@ modules:
           url: https://api.github.com/repos/horsicq/DIE-engine/releases/latest
           version-query: .tag_name
           url-query: .assets[] | select(.name == "die_sourcecode_\($version).tar.gz").browser_download_url
-      - type: patch
-        use-git: true
-        path: patches/store-configs-in-dotconfig.patch
       - type: file
         path: io.github.horsicq.detect-it-easy.metainfo.xml
