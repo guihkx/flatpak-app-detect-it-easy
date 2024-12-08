@@ -1,6 +1,6 @@
 app-id: io.github.horsicq.detect-it-easy
 runtime: org.kde.Platform
-runtime-version: 5.15-23.08
+runtime-version: 5.15-24.08
 sdk: org.kde.Sdk
 command: die
 rename-desktop-file: die.desktop
