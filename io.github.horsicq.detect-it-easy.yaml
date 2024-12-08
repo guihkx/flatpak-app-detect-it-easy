@@ -21,8 +21,8 @@ modules:
       - install -Dm644 -t /app/share/metainfo $FLATPAK_ID.metainfo.xml
     sources:
       - type: archive
-        url: https://github.com/horsicq/DIE-engine/releases/download/3.09/die_sourcecode_3.09.tar.gz
-        sha256: eb458c5fbc3d06abf04c552ca20e0d0cfcf36540c2f0962feb79e2f4ea65bc12
+        url: https://github.com/horsicq/DIE-engine/releases/download/3.10/die_sourcecode_3.10.tar.gz
+        sha256: 4cb41ec41b3a3433dffc071ccd8afd91cbc69c33fbea54f9dd947055a5ec4b5c
         x-checker-data:
           type: json
           url: https://api.github.com/repos/horsicq/DIE-engine/releases/latest
