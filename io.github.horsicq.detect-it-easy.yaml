@@ -17,7 +17,6 @@ modules:
   - name: detect-it-easy
     buildsystem: cmake-ninja
     post-install:
-      - desktop-file-edit --remove-key=Version /app/share/applications/die.desktop
       - install -Dm644 -t /app/share/metainfo $FLATPAK_ID.metainfo.xml
     sources:
       - type: archive
