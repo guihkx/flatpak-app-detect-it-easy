@@ -3,8 +3,6 @@ runtime: org.kde.Platform
 runtime-version: '6.8'
 sdk: org.kde.Sdk
 command: die
-rename-desktop-file: die.desktop
-rename-icon: detect-it-easy
 
 finish-args:
   - --device=dri
@@ -16,16 +14,7 @@ finish-args:
 modules:
   - name: detect-it-easy
     buildsystem: qmake
-    post-install:
-      - install -Dm644 -t /app/share/metainfo $FLATPAK_ID.metainfo.xml
     sources:
-      - type: archive
-        url: https://github.com/horsicq/DIE-engine/releases/download/3.10/die_sourcecode_3.10.tar.gz
-        sha256: 4cb41ec41b3a3433dffc071ccd8afd91cbc69c33fbea54f9dd947055a5ec4b5c
-        x-checker-data:
-          type: json
-          url: https://api.github.com/repos/horsicq/DIE-engine/releases/latest
-          version-query: .tag_name
-          url-query: .assets[] | select(.name == "die_sourcecode_\($version).tar.gz").browser_download_url
-      - type: file
-        path: io.github.horsicq.detect-it-easy.metainfo.xml
+      - type: git
+        url: https://github.com/horsicq/DIE-engine.git
+        commit: 6899db3a8d367b5480530d6f07ea50c1c05fe3cc
