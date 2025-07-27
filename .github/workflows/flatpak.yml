@@ -105,9 +105,18 @@ jobs:
 
       - name: Validate manifest
         run: |
-          flatpak run --command=flatpak-builder-lint \
-            org.flatpak.Builder \
-            --exceptions manifest '${{ steps.details.outputs.manifest }}'
+          set -x
+          if [ -f 'linter-exceptions.json' ]
+          then
+            flatpak run --command=flatpak-builder-lint \
+              org.flatpak.Builder \
+              --user-exceptions linter-exceptions.json \
+              --exceptions manifest '${{ steps.details.outputs.manifest }}'
+          else
+            flatpak run --command=flatpak-builder-lint \
+              org.flatpak.Builder \
+              --exceptions manifest '${{ steps.details.outputs.manifest }}'
+          fi
 
       - name: Validate flatpak-external-data-checker settings
         run: |
@@ -202,8 +211,18 @@ jobs:
 
       - name: Validate build
         run: |
-          flatpak run --command=flatpak-builder-lint \
-            org.flatpak.Builder --exceptions repo repo || true
+          set -x
+          if [ -f 'linter-exceptions.json' ]
+          then
+            flatpak run --command=flatpak-builder-lint \
+              org.flatpak.Builder \
+              --user-exceptions linter-exceptions.json \
+              --exceptions repo repo
+          else
+            flatpak run --command=flatpak-builder-lint \
+              org.flatpak.Builder \
+              --exceptions repo repo
+          fi
 
       - name: Extract the name of the app
         id: name
