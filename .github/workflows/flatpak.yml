@@ -242,6 +242,7 @@ jobs:
             --delete-build-dirs \
             --force-clean \
             --install-deps-from flathub \
+            --sandbox \
             --user \
             --repo repo/ \
             --verbose \
