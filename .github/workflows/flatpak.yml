@@ -3,12 +3,12 @@ name: Flatpak
 on:
   pull_request:
     paths-ignore:
-      - '*.md'
+      - '**.md'
   push:
     branches:
       - '**'
     paths-ignore:
-      - '*.md'
+      - '**.md'
     tags-ignore:
       - '**'
   release:
