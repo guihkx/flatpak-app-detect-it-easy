@@ -1,0 +1,6 @@
+{
+  "io.github.horsicq.detect-it-easy": {
+    "appstream-external-screenshot-url": "Flathub-specific",
+    "appstream-screenshots-not-mirrored-in-ostree": "Flathub-specific"
+  }
+}
