@@ -36,7 +36,7 @@ jobs:
       - name: Install helpful tools
         run: |
           sudo apt update
-          sudo apt install xmlstarlet
+          sudo apt install flatpak-builder xmlstarlet
 
       - name: Extract details about the app
         id: details
@@ -101,7 +101,7 @@ jobs:
           path: ~/.local/share/flatpak
 
       - name: Show version of flatpak-builder
-        run: flatpak run org.flatpak.Builder --version
+        run: flatpak-builder --version
 
       - name: Validate manifest
         run: |
@@ -139,7 +139,7 @@ jobs:
 
       - name: Build (${{ matrix.arch }})
         run: |
-          dbus-run-session flatpak run org.flatpak.Builder \
+          dbus-run-session flatpak-builder \
             --arch ${{ matrix.arch }} \
             --build-only \
             --delete-build-dirs \
@@ -201,7 +201,7 @@ jobs:
 
       - name: Finish build (${{ matrix.arch }})
         run: |
-          dbus-run-session flatpak run org.flatpak.Builder \
+          dbus-run-session flatpak-builder \
             --arch ${{ matrix.arch }} \
             --finish-only \
             --repo repo/ \
@@ -256,7 +256,7 @@ jobs:
       # https://github.com/flatpak/flatpak-builder/issues/14
       - name: (WORKAROUND) Rebuild (${{ matrix.arch }})
         run: |
-          dbus-run-session flatpak run org.flatpak.Builder \
+          dbus-run-session flatpak-builder \
             --arch ${{ matrix.arch }} \
             --delete-build-dirs \
             --force-clean \
