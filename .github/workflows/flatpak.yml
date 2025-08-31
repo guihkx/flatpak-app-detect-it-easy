@@ -164,7 +164,6 @@ jobs:
       - name: Update AppStream release version
         id: version
         run: |
-          set -e
           set -x
           for appdata in builddir/*/share/appdata/*.appdata.xml \
                          builddir/*/share/metainfo/*.appdata.xml \
@@ -227,7 +226,6 @@ jobs:
       - name: Extract the name of the app
         id: name
         run: |
-          set -e
           set -x
           for appdata in builddir/*/share/appdata/'${{ steps.details.outputs.app_id }}'.appdata.xml \
                          builddir/*/share/metainfo/'${{ steps.details.outputs.app_id }}'.appdata.xml \
