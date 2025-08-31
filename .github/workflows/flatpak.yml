@@ -124,10 +124,10 @@ jobs:
             '${{ steps.details.outputs.manifest }}'
 
       - name: Set up QEMU
-        if: matrix.arch != 'x86_64'
+        if: matrix.arch != 'x86_64' && matrix.arch != 'aarch64'
         uses: docker/setup-qemu-action@v3
         with:
-          platforms: ${{ matrix.arch == 'aarch64' && 'arm64' || matrix.arch }}
+          platforms: ${{ matrix.arch }}
 
       - name: Restore Flatpak build directory from cache
         uses: actions/cache/restore@v4
