@@ -17,4 +17,4 @@ modules:
     sources:
       - type: git
         url: https://github.com/horsicq/DIE-engine.git
-        commit: 126c109b28186c85f77ac995d3d42e5c91313a73
+        commit: 8e8a3b241a0df82dfffd08db3a0674599c4f606e
