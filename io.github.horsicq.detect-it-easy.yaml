@@ -15,10 +15,13 @@ modules:
   - name: detect-it-easy
     buildsystem: qmake
     sources:
-      - type: git
-        url: https://github.com/horsicq/DIE-engine.git
-        tag: '3.20'
-        commit: 530cb70cfd81412a9cac35f94853b57e81a0b026
+      - type: archive
+        url: https://github.com/horsicq/DIE-engine/releases/download/3.20/die_sourcecode_3.20.tar.gz
+        sha256: e9ee8773efedc1b888701e68663a1dcd647ae8c54e15da1fdc645369498b1a38
+        x-checker-data:
+          type: anitya
+          project-id: 382809
+          url-template: https://github.com/horsicq/DIE-engine/releases/download/$version/die_sourcecode_$version.tar.gz
       # https://github.com/horsicq/DIE-engine/commit/d44bc2a428d15cfa367948713330d68c7b3de43b
       - type: patch
         path: patches/0001-linux-metadata-add-v3.20-release.patch
