@@ -278,7 +278,7 @@ jobs:
             '${{ steps.details.outputs.branch }}'
 
       - name: Upload app (${{ matrix.arch }})
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           path: '${{ steps.name.outputs.value }}_${{ steps.version.outputs.value }}-${{ matrix.arch }}.flatpak'
           name: '${{ steps.name.outputs.value }}_${{ steps.version.outputs.value }}-${{ matrix.arch }}'
@@ -293,7 +293,7 @@ jobs:
             '${{ steps.details.outputs.branch }}' || true
 
       - name: Upload locale files (${{ matrix.arch }})
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           path: '${{ steps.name.outputs.value }}_${{ steps.version.outputs.value }}-${{ matrix.arch }}.Locale.flatpak'
           name: '${{ steps.name.outputs.value }}_${{ steps.version.outputs.value }}-${{ matrix.arch }}.Locale'
@@ -308,7 +308,7 @@ jobs:
             '${{ steps.details.outputs.branch }}' || true
 
       - name: Upload debug symbols (${{ matrix.arch }})
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           path: '${{ steps.name.outputs.value }}_${{ steps.version.outputs.value }}-${{ matrix.arch }}.Debug.flatpak'
           name: '${{ steps.name.outputs.value }}_${{ steps.version.outputs.value }}-${{ matrix.arch }}.Debug'
@@ -324,7 +324,7 @@ jobs:
 
     steps:
       - name: Download build artifacts from previous jobs
-        uses: actions/download-artifact@v5
+        uses: actions/download-artifact@v7
         with:
           path: artifacts
 
