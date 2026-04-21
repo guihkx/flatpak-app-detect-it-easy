@@ -17,4 +17,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/horsicq/DIE-engine.git
-        commit: d41576d07879407d76aa5e126702875373154b4a
+        tag: '3.20'
+        commit: 530cb70cfd81412a9cac35f94853b57e81a0b026
+      # https://github.com/horsicq/DIE-engine/commit/d44bc2a428d15cfa367948713330d68c7b3de43b
+      - type: patch
+        path: patches/0001-linux-metadata-add-v3.20-release.patch
