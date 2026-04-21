@@ -75,7 +75,7 @@ jobs:
         run: flatpak --version
 
       - name: Restore Flatpak build tools from cache
-        uses: actions/cache/restore@v4
+        uses: actions/cache/restore@v5
         with:
           key: flatpak-tools-${{ matrix.arch }}-${{ github.run_id }}
           path: ~/.local/share/flatpak
@@ -95,7 +95,7 @@ jobs:
 
       - name: Save Flatpak build tools to cache
         if: ${{ always() }}
-        uses: actions/cache/save@v4
+        uses: actions/cache/save@v5
         with:
           key: flatpak-tools-${{ matrix.arch }}-${{ github.run_id }}
           path: ~/.local/share/flatpak
@@ -130,7 +130,7 @@ jobs:
           platforms: ${{ matrix.arch }}
 
       - name: Restore Flatpak build directory from cache
-        uses: actions/cache/restore@v4
+        uses: actions/cache/restore@v5
         with:
           key: flatpak-build-dir-${{ matrix.arch }}-${{ github.run_id }}
           path: .flatpak-builder
@@ -153,7 +153,7 @@ jobs:
 
       - name: Save Flatpak build directory to cache
         if: ${{ always() }}
-        uses: actions/cache/save@v4
+        uses: actions/cache/save@v5
         with:
           key: flatpak-build-dir-${{ matrix.arch }}-${{ github.run_id }}
           path: .flatpak-builder
