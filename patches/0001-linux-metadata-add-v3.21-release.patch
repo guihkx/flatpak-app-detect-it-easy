@@ -1,24 +1,24 @@
-From d44bc2a428d15cfa367948713330d68c7b3de43b Mon Sep 17 00:00:00 2001
+From c03865c2bd1e83815b01e84f192f0f4be12d2ad1 Mon Sep 17 00:00:00 2001
 From: guihkx <626206+guihkx@users.noreply.github.com>
-Date: Tue, 21 Apr 2026 14:39:00 -0300
-Subject: [PATCH] linux/metadata: add v3.20 release
+Date: Tue, 21 Apr 2026 20:45:34 -0300
+Subject: [PATCH] linux/metadata: add v3.21 release
 
 ---
  LINUX/io.github.horsicq.detect-it-easy.metainfo.xml | 3 +++
  1 file changed, 3 insertions(+)
 
 diff --git a/LINUX/io.github.horsicq.detect-it-easy.metainfo.xml b/LINUX/io.github.horsicq.detect-it-easy.metainfo.xml
-index d0445711..139d1125 100644
+index 139d1125..f483096a 100644
 --- a/LINUX/io.github.horsicq.detect-it-easy.metainfo.xml
 +++ b/LINUX/io.github.horsicq.detect-it-easy.metainfo.xml
 @@ -38,6 +38,9 @@
    <url type="bugtracker">https://github.com/horsicq/Detect-It-Easy/issues</url>
    <content_rating type="oars-1.1"/>
    <releases>
-+    <release version="3.20" date="2026-04-20">
++    <release version="3.21" date="2026-04-21">
 +      <url>https://raw.githubusercontent.com/horsicq/Detect-It-Easy/refs/heads/master/changelog.txt</url>
 +    </release>
-     <release version="3.10" date="2024-11-03">
+     <release version="3.20" date="2026-04-20">
        <url>https://raw.githubusercontent.com/horsicq/Detect-It-Easy/refs/heads/master/changelog.txt</url>
      </release>
 -- 
