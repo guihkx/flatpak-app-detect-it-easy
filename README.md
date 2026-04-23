@@ -1,3 +1,7 @@
+# Detect It Easy is now on Flathub
+
+https://flathub.org/apps/io.github.horsicq.detect-it-easy
+
 # About
 
 Detect It Easy is an advanced file analyzer.
